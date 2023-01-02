@@ -106,6 +106,12 @@ class _SelectionListState extends State<SelectionList> {
                           child: TextField(
                             controller: _controller,
                             decoration: InputDecoration(
+                              suffixIcon: Align(
+                                alignment: Alignment.centerLeft,
+                                child: Icon(Icons.search),
+                              ),
+                              suffixIconConstraints:
+                                  BoxConstraints(maxWidth: 60),
                               border: InputBorder.none,
                               focusedBorder: InputBorder.none,
                               enabledBorder: InputBorder.none,
@@ -124,8 +130,9 @@ class _SelectionListState extends State<SelectionList> {
                           child: Text(
                             widget.theme?.lastPickText ?? 'LAST PICK',
                             style: TextStyle(
-                                color:
-                                    widget.theme?.labelColor ?? Colors.black),
+                              color:
+                                  widget.theme?.labelColor, // ?? Colors.black
+                            ),
                           ),
                         ),
                         Container(
@@ -190,7 +197,7 @@ class _SelectionListState extends State<SelectionList> {
   Widget getListCountry(CountryCode e) {
     return Container(
       height: 50,
-      color: Colors.white,
+      // color: Colors.white,
       child: Material(
         color: Colors.transparent,
         child: ListTile(
