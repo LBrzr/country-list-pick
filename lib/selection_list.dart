@@ -72,6 +72,7 @@ class _SelectionListState extends State<SelectionList> {
         statusBarBrightness: !kIsWeb ? Brightness.dark : Brightness.light,
       ));
     height = MediaQuery.of(context).size.height;
+    theme = Theme.of(context);
     Widget scaffold = Scaffold(
       appBar: widget.appBar,
       body: Container(
@@ -96,11 +97,12 @@ class _SelectionListState extends State<SelectionList> {
                             widget.theme?.searchText ?? 'SEARCH',
                             style: TextStyle(
                                 color:
-                                    widget.theme?.labelColor ?? Colors.black),
+                                    widget.theme?.labelColor, //  ?? Colors.black
+                            ),
                           ),
                         ),
                         Container(
-                          color: Colors.white,
+                          color: theme.backgroundColor,// Colors.white,
                           child: TextField(
                             controller: _controller,
                             decoration: InputDecoration(
@@ -127,7 +129,7 @@ class _SelectionListState extends State<SelectionList> {
                           ),
                         ),
                         Container(
-                          color: Colors.white,
+                          color: theme.backgroundColor, //Colors.white,
                           child: Material(
                             color: Colors.transparent,
                             child: ListTile(
@@ -244,11 +246,13 @@ class _SelectionListState extends State<SelectionList> {
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color:
-                        widget.theme?.alphabetSelectedTextColor ?? Colors.white)
+                        widget.theme?.alphabetSelectedTextColor ?? Colors.white
+                )
                 : TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
-                    color: widget.theme?.alphabetTextColor ?? Colors.black),
+                    color: widget.theme?.alphabetTextColor, // ?? Colors.black
+                ),
           ),
         ),
       ),
