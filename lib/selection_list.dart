@@ -102,7 +102,7 @@ class _SelectionListState extends State<SelectionList> {
                           ),
                         ),
                         Container(
-                          color: theme.backgroundColor, // Colors.white,
+                          color: theme.colorScheme.background, // Colors.white,
                           child: TextField(
                             controller: _controller,
                             decoration: InputDecoration(
